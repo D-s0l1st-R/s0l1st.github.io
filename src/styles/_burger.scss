@@ -1,0 +1,58 @@
+.burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 200;
+  position: relative;
+  gap: 4px;
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+
+  &__line {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: #555;
+    border-radius: 2px;
+    transition:
+      transform $transition-normal,
+      opacity $transition-fast,
+      background-color $transition-fast;
+
+    &:nth-child(3) {
+      width: 18px;
+      align-self: center;
+    }
+  }
+
+  &:has(&__input:checked) &__line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+    background: #fff;
+  }
+  &:has(&__input:checked) &__line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  &:has(&__input:checked) &__line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+    width: 24px;
+    background: #fff;
+  }
+
+  &:hover &__line {
+    background: #333;
+  }
+  &:has(&__input:checked):hover &__line {
+    background: #fff;
+  }
+}

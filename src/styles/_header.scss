@@ -1,0 +1,45 @@
+.header {
+  position: sticky;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: $header-height;
+  background: $color-header;
+  transition: background-color $transition-normal;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  &--open { background: $color-header-open; }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 16px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    transition: transform $transition-fast, background $transition-fast;
+    cursor: pointer;
+
+    &:hover { transform: scale(1.15); background: rgba(0, 0, 0, 0.18); }
+    &:active { transform: scale(0.95); }
+    &--play { color: #2e7d32; }
+    &--circle { color: #1565c0; }
+    &--square { color: #6a1b9a; }
+  }
+}

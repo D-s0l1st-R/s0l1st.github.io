@@ -1,0 +1,51 @@
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($card-min-width, 1fr));
+  gap: $card-gap;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  @media (min-width: $bp-sm) { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+  @media (min-width: $bp-md) { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 20px; }
+  @media (min-width: $bp-lg) { gap: 24px; }
+  @media (min-width: $bp-xl) { grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); }
+}
+
+.card {
+  background: $color-card;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 140px;
+  transition: transform $transition-fast, box-shadow $transition-fast, background-color $transition-fast;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    background: $color-card-hover;
+  }
+  &:active { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+
+  &__title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #1a1a2e;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__text {
+    font-size: 12px;
+    line-height: 1.5;
+    color: $color-text-light;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    flex: 1;
+  }
+}

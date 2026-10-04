@@ -1,0 +1,14 @@
+html, body { height: 100%; }
+
+.main-content {
+  flex: 1 0 auto;
+  padding: calc(#{$header-height} + 16px) 16px 16px;
+  transition: margin-left $transition-slow;
+
+  @media (min-width: $bp-md) { padding: calc(#{$header-height} + 24px) 24px 24px; }
+  @media (min-width: $bp-lg) { padding: calc(#{$header-height} + 32px) 32px 32px; }
+}
+
+body.menu-open .main-content {
+  @media (min-width: $bp-lg) { margin-left: $menu-width; }
+}
