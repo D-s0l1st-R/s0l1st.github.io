@@ -43,6 +43,9 @@ function handlebarsPlugin() {
 export default defineConfig({
   base: "/",
   plugins: [handlebarsPlugin()],
+  build: {
+    outDir: "docs",
+  },
   css: {
     preprocessorOptions: {
       scss: {
